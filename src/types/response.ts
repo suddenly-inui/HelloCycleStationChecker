@@ -20,3 +20,7 @@ export interface Station {
   'vehicle_type_capacity.num_bikes_parkable': number
   'vehicle_type_capacity.num_bikes_rentalable': number
 }
+
+export interface Stations {
+  stations: { [key: string]: string }
+}
