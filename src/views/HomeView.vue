@@ -1,5 +1,5 @@
 <template>
-  <h1>検索</h1>
+  <h1>ステーション名を検索</h1>
   <input type="text" v-model="station_name" />
   <StationInfo :station_name="station_name"></StationInfo>
 </template>
