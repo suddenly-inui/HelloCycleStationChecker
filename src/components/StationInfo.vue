@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import type { Station } from '../types/response'
-import { ref, watch, toRef } from 'vue'
+import { ref, watch, toRef, onMounted } from 'vue'
 import { fav_station } from '@/services/LocalStorage'
 
 import StationsApiService from '@/services/StationsApiService'
@@ -24,15 +24,12 @@ const props = defineProps({
 })
 
 let station = ref<Station | null>(null)
-let station_name = toRef(() => props.station_name)
 
-watch(station_name, async () => {  
+onMounted(async () => {  
   if (props.station_name) {
     const response = await StationsApiService.get(props.station_name)
     station.value = response.data.station[0] as Station | null
   }
-}, {
-  immediate: true
 })
 
 const fav = () => {
