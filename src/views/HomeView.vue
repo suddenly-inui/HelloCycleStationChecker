@@ -2,7 +2,9 @@
   <h1>ステーション名を検索</h1>
   <input type="text" v-model="station_name" />
   <button @click="search">検索</button>
-  <StationInfo :station_name="name" v-for="name in station_name_list" :key="name">{{ name }}</StationInfo>
+  <div class="station-card-container">
+    <StationInfo :station_name="name" v-for="name in station_name_list" :key="name">{{ name }}</StationInfo>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -34,4 +36,11 @@ const search = async () => {
 }
 </script>
 
-<style></style>
+<style scoped>
+.station-card-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+</style>

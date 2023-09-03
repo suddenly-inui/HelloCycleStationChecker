@@ -1,5 +1,5 @@
 <template>
-  <div v-if="station">
+  <div class="station-card" v-if="station">
     <h1>{{ station?.name }}</h1>
     <p>address: {{ station?.address }}</p>
 
@@ -38,3 +38,9 @@ const fav = () => {
   }
 }
 </script>
+
+<style scoped>
+.station-card{
+  
+}
+</style>
