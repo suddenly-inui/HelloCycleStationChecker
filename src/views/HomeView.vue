@@ -1,7 +1,14 @@
 <template>
-  <h1>ステーション名を検索</h1>
-  <input type="text" v-model="station_name" />
-  <button @click="search">検索</button>
+  <div class="search">
+    <div class="search_title">
+      <img class="search_image" src="../assets/cookie.png" alt="">
+      <div class="search_title_name_container">
+        <h1 class="search_title_name">ステーション検索🚲</h1>
+      </div>
+      <img class="search_image" src="../assets/cigar.png" alt="">
+    </div>
+    <input class="search_bar" type="text" v-model="station_name" placeholder="ステーション名で検索" v-on:keydown.enter="search" />
+  </div>
   <div class="station-card-container">
     <StationInfo :station_name="name" v-for="name in station_name_list" :key="name">{{ name }}</StationInfo>
   </div>
@@ -25,6 +32,7 @@ onMounted(() => {
 
 const search = async () => {  
   if (station_name.value.trim() === "") {
+    station_name_list.value = []
     return
   }
   station_name_list.value = []
@@ -40,7 +48,45 @@ const search = async () => {
 .station-card-container{
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  gap: 10px;
 }
+
+.search{
+  margin: 0 auto;
+  margin-top: calc(50vh - 250px);
+  width: 50%;
+}
+
+.search_title{
+  display: flex;
+}
+
+.search_image{
+  width: 20%;
+  height: 20%;
+}
+
+.search_title_name_container{
+  flex-grow: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_title_name{
+  font-size: 3em;
+}
+
+.search_bar{
+  display: block;
+  border: 3px solid #e1e1e1;
+  border-radius: 30px;
+  box-shadow: 0 1px 6px 0 #20212447;
+  background-color: #F1F1F1;
+  height: 70px;
+  font-size: 1.7em;
+  width: 100%;
+  color: #111;
+  padding-left: 15px;
+}
+
 </style>

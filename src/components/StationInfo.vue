@@ -41,6 +41,9 @@ const fav = () => {
 
 <style scoped>
 .station-card{
-  
+  flex-basis: 30%;
+  padding: 10px;
+  margin: calc(10%/6);
+  border: 1px solid black;
 }
 </style>
