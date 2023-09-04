@@ -43,7 +43,7 @@ let station = ref<Station | null>(null)
 let isFav = ref<boolean>(false)
 let rental_isEmpty = ref<boolean>(false)
 let park_isEmpty = ref<boolean>(false)
-let os = ref("")
+let station_url = ref()
 
 const card_isFav = () => {
   isFav.value = false
@@ -53,16 +53,6 @@ const card_isFav = () => {
       return
     }
   })
-}
-
-const station_url = () => {
-  if (os.value === "iOS") {
-    return station.value?.['rental_uris.ios']
-  } else if (os.value === "Android") {
-    return station.value?.['rental_uris.android']
-  } else {
-    return station.value?.['rental_uris.web']
-  }
 }
 
 onMounted(async () => {
@@ -85,12 +75,14 @@ onMounted(async () => {
 
   const userAgent = navigator.userAgent
   if (userAgent.match(/iPhone|iPad|iPod/)) {
-    os.value = 'iOS'
+    station_url.value = station.value?.['rental_uris.ios']
   } else if (userAgent.match(/Android/)) {
-    os.value = 'Android'
+    station_url.value = station.value?.['rental_uris.android']
   } else {
-    os.value = 'web'
+    station_url.value = station.value?.['rental_uris.web']
   }
+
+  
 })
 
 const fav = () => {
