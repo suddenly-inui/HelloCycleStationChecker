@@ -7,7 +7,7 @@
       </div>
       <img class="search_image" src="../assets/cigar.png" alt="">
     </div>
-    <input class="search_bar" type="text" v-model="station_name" placeholder="ステーション名で検索" v-on:keydown.enter="search" />
+    <input class="search_bar" type="text" v-model="station_name" placeholder="ステーション名で検索" v-on:keydown.enter="search" @keyup.enter="search"/>
   </div>
   <StationCardContainer>
     <StationInfo :station_name="name" v-for="name in station_name_list" :key="name">{{ name }}</StationInfo>
