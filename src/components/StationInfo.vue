@@ -1,10 +1,9 @@
 <template>
   <div class="station-card" v-if="station">
-    <div class="station_name">
-      <h1>{{ station?.name }}
+    <div class="station_desc">
+      <a class="station_name" target="_blank" :href="station['rental_uris.web']">{{ station?.name }}</a>
         <span :class="{'hide_icon': isFav}" class="fav_icon" @click="fav">☆</span>
         <span :class="{'hide_icon': !isFav}" class="fav_icon" @click="delete_fav">⭐️</span>
-      </h1>
       <p>{{ station?.address }}</p>
     </div>
     <div class="station_info"> 
@@ -67,6 +66,9 @@ onMounted(async () => {
   if (!station.value?.['vehicle_type_capacity.num_bikes_parkable']) {
     park_isEmpty.value = true
   }
+
+  console.log(station.value?.['rental_uris.ios']);
+  
 })
 
 const fav = () => {
@@ -99,6 +101,7 @@ const delete_fav = () => {
 
 .fav_icon{
   user-select: none;
+  font-size: 30px;
 }
 
 .fav_icon:hover{
@@ -108,7 +111,7 @@ const delete_fav = () => {
   flex-basis: 30%;
   padding: 10px;
   margin: calc(10%/6);
-  border: 2px solid #000;
+  border: 1.5px solid #000;
   border-radius: 15px;
   aspect-ratio: 12/6;
 
@@ -116,8 +119,16 @@ const delete_fav = () => {
   flex-direction: column;
 }
 
-.station_name{
+.station_desc{
   flex-basis: 50%;
+}
+
+.station_name{
+  font-size: 30px;
+}
+
+.station_name:hover{
+  color: rgba(0, 0, 0, 0.5)
 }
 
 .station_info{
