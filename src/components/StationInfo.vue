@@ -28,6 +28,16 @@ const props = defineProps({
 let station = ref<Station | null>(null)
 let isFav = ref<boolean>(false)
 
+const card_isFav = () => {
+  isFav.value = false
+  fav_station.value.forEach((elem) => {
+    if (elem === props.station_name) {
+      isFav.value = true
+      return
+    }
+  })
+}
+
 onMounted(async () => {    
   //ステーション名が空でないなら、apiを叩く
   if (props.station_name) {
@@ -36,19 +46,15 @@ onMounted(async () => {
   }
 
   //ステーションがお気に入りかどうかを取得
-  fav_station.value.forEach((elem) => {
-    if (elem === props.station_name) {
-      isFav.value = true
-    }
-  })
+  card_isFav()
 })
 
 const fav = () => {
   if (!fav_station.value.includes(props.station_name)) {
     fav_station.value.push(props.station_name)
     console.log(props.station_name);
-    
   }
+  card_isFav()
 }
 
 const delete_fav = () => {
@@ -58,6 +64,7 @@ const delete_fav = () => {
       return
     }
   })
+  card_isFav()
 }
 </script>
 
