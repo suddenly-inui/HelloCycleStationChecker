@@ -97,23 +97,18 @@ const search = async () => {
     margin-top: calc(50vh - 300px);
   }
   .search_title_name{
-    font-size: 2em;
+    font-size: 1.7em;
   }
 
   .search_bar{
     height: 50px;
-    font-size: 1em;
+    font-size: 1.2em;
   }
 }
 
 @media (max-width: 1000px) {
   .search_title_name{
-    font-size: 2em;
-  }
-
-  .search_bar{
-    height: 35px;
-    font-size: 0.7em;
+    font-size: 1.5em;
   }
 }
 </style>
