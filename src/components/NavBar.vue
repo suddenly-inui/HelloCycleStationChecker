@@ -59,7 +59,32 @@ nav{
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
-.home{
+@media (max-width: 800px) {
+	nav{
+		height: 70px;
+	}
 
+	.item_wrapper{
+		width: 150px;
+	}
+
+	.item{
+		line-height: 25px;
+	}
+}
+
+@media (max-width: 500px) {
+	nav{
+		height: 50px;
+	}
+
+	.item_wrapper{
+		width: 100px;
+	}
+
+	.item{
+		font-size: 12px;
+		line-height: 10px;
+	}
 }
 </style>
