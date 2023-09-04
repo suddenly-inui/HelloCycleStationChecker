@@ -1,12 +1,22 @@
 <template>
   <div class="station-card" v-if="station">
-    <h1>{{ station?.name }}<span :class="{'hide_icon': !isFav}" >⭐️</span></h1>
-    <p>address: {{ station?.address }}</p>
-
-    <p>num parkable: {{ station ?station['vehicle_type_capacity.num_bikes_parkable'] :undefined }}</p>
-    <p>num rentalable: {{ station ?station['vehicle_type_capacity.num_bikes_rentalable'] :undefined }}</p>
-    <button @click="fav">お気に入り</button>
-    <button @click="delete_fav" :class="{'hide_icon': !isFav}">お気に入り削除</button>
+    <div class="station_name">
+      <h1>{{ station?.name }}
+        <span :class="{'hide_icon': isFav}" class="fav_icon" @click="fav">☆</span>
+        <span :class="{'hide_icon': !isFav}" class="fav_icon" @click="delete_fav">⭐️</span>
+      </h1>
+      <p>{{ station?.address }}</p>
+    </div>
+    <div class="station_info"> 
+        <div class="station_state_item">
+          <p class="station_info_title">レンタル可能</p>
+          <p class="num">{{ station ?station['vehicle_type_capacity.num_bikes_rentalable'] :undefined }}</p>
+        </div>
+        <div class="station_state_item">
+          <p class="station_info_title">駐車可能</p>
+          <p class="num">{{ station ?station['vehicle_type_capacity.num_bikes_parkable'] :undefined }}</p>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -72,11 +82,73 @@ const delete_fav = () => {
 .hide_icon{
   display: none;
 }
+
+.fav_icon{
+  user-select: none;
+}
+
+.fav_icon:hover{
+  cursor: pointer;
+}
 .station-card{
   flex-basis: 30%;
   padding: 10px;
   margin: calc(10%/6);
   border: 2px solid #000;
   border-radius: 15px;
+  aspect-ratio: 12/6;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.station_name{
+  flex-basis: 50%;
+}
+
+.station_info{
+  margin-top: 10px;
+  flex-basis: 50%;
+  display: flex;
+  gap: 15px;
+}
+
+.station_state_item{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.station_info_title{
+  font-weight: bold;
+}
+
+.num{
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.fav_buttons_item{
+  width: 50%;
+  aspect-ratio: 1/1;
+  margin: auto;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+@media (max-width: 1400px) {
+  .station-card{
+    flex-basis: 45%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .station-card{
+    flex-basis: 100%;
+    aspect-ratio: 12/3;
+  }
 }
 </style>
