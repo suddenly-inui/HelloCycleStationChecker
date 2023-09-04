@@ -49,6 +49,7 @@ const search = async () => {
   margin: 0 auto;
   margin-top: calc(50vh - 250px);
   width: 50%;
+  margin-bottom: 50px;
 }
 
 .search_title{
