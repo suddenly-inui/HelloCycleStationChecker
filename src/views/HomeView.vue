@@ -3,7 +3,7 @@
     <div class="search_title">
       <img class="search_image" src="../assets/cookie.png" alt="">
       <div class="search_title_name_container">
-        <h1 class="search_title_name">ステーション検索🚲</h1>
+        <h1 class="search_title_name">ステーション検索</h1>
       </div>
       <img class="search_image" src="../assets/cigar.png" alt="">
     </div>
