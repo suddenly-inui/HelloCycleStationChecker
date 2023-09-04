@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const apiClient = axios.create({
   // APIのURI
-  baseURL: 'http://localhost:8000',
+  baseURL: 'http://34.85.49.75/',
   // リクエストヘッダ
   headers: {
     'Content-type': 'application/json'
