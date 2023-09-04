@@ -63,6 +63,7 @@ const search = async () => {
 .search_image{
   width: 20%;
   height: 20%;
+  user-select: none;
 }
 
 .search_title_name_container{
@@ -74,6 +75,7 @@ const search = async () => {
 
 .search_title_name{
   font-size: 3em;
+  user-select: none;
 }
 
 .search_bar{

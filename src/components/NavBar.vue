@@ -28,6 +28,7 @@ nav{
 
 .logo{
 	margin: 0 10px;
+	user-select: none;
 }
 
 .right{
@@ -51,6 +52,7 @@ nav{
 	border-left: 1px solid #000;
 	transition: background-color 0.3s;
 	line-height: 40px;
+	user-select: none;
 }
 
 .item_wrapper:hover{
