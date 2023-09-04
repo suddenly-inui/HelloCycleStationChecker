@@ -89,6 +89,11 @@ const search = async () => {
 
 @media (max-width: 1400px) {
   .search{
+    width: 80%;
+    margin-top: calc(50vh - 150px);
+  }
+
+  .search{
     margin-top: calc(50vh - 300px);
   }
   .search_title_name{
@@ -102,10 +107,6 @@ const search = async () => {
 }
 
 @media (max-width: 1000px) {
-  .search{
-    width: 80%;
-    margin-top: calc(50vh - 150px);
-  }
   .search_title_name{
     font-size: 2em;
   }
@@ -115,12 +116,4 @@ const search = async () => {
     font-size: 0.7em;
   }
 }
-
-@media (max-width: 700px) {
-  .search{
-    width: 80%;
-    margin-top: calc(50vh - 150px);
-  }
-}
-
 </style>
