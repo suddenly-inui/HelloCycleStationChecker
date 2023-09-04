@@ -8,11 +8,11 @@
       <p>{{ station?.address }}</p>
     </div>
     <div class="station_info"> 
-        <div class="station_state_item">
+        <div class="station_state_item" :class="{'empty': rental_isEmpty}">
           <p class="station_info_title">レンタル可能</p>
           <p class="num">{{ station ?station['vehicle_type_capacity.num_bikes_rentalable'] :undefined }}</p>
         </div>
-        <div class="station_state_item">
+        <div class="station_state_item" :class="{'empty': park_isEmpty}">
           <p class="station_info_title">駐車可能</p>
           <p class="num">{{ station ?station['vehicle_type_capacity.num_bikes_parkable'] :undefined }}</p>
         </div>
@@ -37,6 +37,8 @@ const props = defineProps({
 
 let station = ref<Station | null>(null)
 let isFav = ref<boolean>(false)
+let rental_isEmpty = ref<boolean>(false)
+let park_isEmpty = ref<boolean>(false)
 
 const card_isFav = () => {
   isFav.value = false
@@ -57,6 +59,14 @@ onMounted(async () => {
 
   //ステーションがお気に入りかどうかを取得
   card_isFav()
+
+  //ステーションの駐車状況を反映
+  if (!station.value?.['vehicle_type_capacity.num_bikes_rentalable']) {
+    rental_isEmpty.value = true
+  }
+  if (!station.value?.['vehicle_type_capacity.num_bikes_parkable']) {
+    park_isEmpty.value = true
+  }
 })
 
 const fav = () => {
@@ -81,6 +91,10 @@ const delete_fav = () => {
 <style scoped>
 .hide_icon{
   display: none;
+}
+
+.empty{
+  background-color: rgba(255,0,0,0.5);
 }
 
 .fav_icon{
