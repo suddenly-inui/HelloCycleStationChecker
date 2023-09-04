@@ -9,16 +9,16 @@
     </div>
     <input class="search_bar" type="text" v-model="station_name" placeholder="ステーション名で検索" v-on:keydown.enter="search" />
   </div>
-  <div class="station-card-container">
+  <StationCardContainer>
     <StationInfo :station_name="name" v-for="name in station_name_list" :key="name">{{ name }}</StationInfo>
-  </div>
+  </StationCardContainer>
 </template>
 
 <script setup lang="ts">
 import StationsApiService from '@/services/StationsApiService'
 import StationInfo from '@/components/StationInfo.vue'
 import { onMounted, ref } from 'vue'
-import type { Stations } from '../types/response'
+import StationCardContainer from '@/components/StationCardContainer.vue'
 
 let stations = ref()
 let station_name = ref('')
@@ -45,11 +45,6 @@ const search = async () => {
 </script>
 
 <style scoped>
-.station-card-container{
-  display: flex;
-  flex-flow: row wrap;
-}
-
 .search{
   margin: 0 auto;
   margin-top: calc(50vh - 250px);
