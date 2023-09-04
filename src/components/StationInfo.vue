@@ -6,7 +6,7 @@
       }}</a>
       <span :class="{ hide_icon: isFav }" class="fav_icon" @click="fav">☆</span>
       <span :class="{ hide_icon: !isFav }" class="fav_icon" @click="delete_fav">⭐️</span>
-      <p>{{ station?.address }}</p>
+      <p>📍{{ station?.address }}</p>
     </div>
     <div class="station_info">
       <div class="station_state_item" :class="{ empty: rental_isEmpty }">
