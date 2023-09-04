@@ -81,8 +81,6 @@ onMounted(async () => {
   } else {
     station_url.value = station.value?.['rental_uris.web']
   }
-
-  
 })
 
 const fav = () => {
