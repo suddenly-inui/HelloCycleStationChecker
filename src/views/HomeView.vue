@@ -121,12 +121,26 @@ const search = async () => {
     margin-top: calc(50vh - 300px);
   }
   .search_title_name{
-    font-size: 1.5em;
+    font-size: 1.7em;
   }
 
   .search_bar{
     height: 50px;
     font-size: 1.2em;
+  }
+
+  .search_button_wrapper{
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .search_title_name{
+    font-size: 1.5em;
+  }
+  
+  .search_input{
+    font-size: 1.3em;
   }
 }
 </style>
