@@ -7,7 +7,12 @@
       </div>
       <img class="search_image" src="../assets/cigar.png" alt="">
     </div>
-    <input class="search_bar" type="text" v-model="station_name" placeholder="ステーション名で検索" v-on:keydown.enter="search"/>
+    <div class="search_bar">
+      <input class="search_input" type="text" v-model="station_name" placeholder="ステーション名で検索" v-on:keydown.enter="search"/>
+      <div class="search_button_wrapper" @click="search">
+        <img class="search_button" src="../assets/search.png" alt="">
+      </div>
+    </div>
   </div>
   <StationCardContainer>
     <StationInfo :station_name="name" v-for="name in station_name_list" :key="name">{{ name }}</StationInfo>
@@ -75,16 +80,35 @@ const search = async () => {
 }
 
 .search_bar{
-  display: block;
   border: 3px solid #e1e1e1;
   border-radius: 30px;
   box-shadow: 0 1px 6px 0 #20212447;
-  background-color: #F1F1F1;
   height: 70px;
-  font-size: 1.7em;
   width: 100%;
-  color: #111;
-  padding-left: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search_input{
+  border: none;
+  display: block;
+  height: 100%;
+  width: 90%;
+  background-color: rgba(0,0,0,0);
+  font-size: 1.7em;
+}
+
+.search_button_wrapper{
+  height: 60%;
+}
+
+.search_button{
+  height: 100%;
+}
+
+.search_button_wrapper:hover{
+  cursor: pointer;
 }
 
 @media (max-width: 1400px) {
