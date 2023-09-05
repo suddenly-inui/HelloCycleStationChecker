@@ -40,6 +40,7 @@ nav{
 	height: 100%;
 	display: flex;
 	align-items: center;
+	transition: background-color 0.5s;
 }
 
 .item{
@@ -50,7 +51,6 @@ nav{
 	width: 200px;
 	text-align: center;
 	border-left: 1px solid #000;
-	transition: background-color 0.3s;
 	line-height: 40px;
 	user-select: none;
 }
