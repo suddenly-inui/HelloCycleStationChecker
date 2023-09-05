@@ -105,6 +105,7 @@ const search = async () => {
 
 .search_button{
   height: 100%;
+  user-select: none;
 }
 
 .search_button_wrapper:hover{
