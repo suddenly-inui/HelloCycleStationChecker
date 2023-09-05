@@ -2,6 +2,7 @@
 
 body{
 	background-color: #F1f1f1;
+	color: black;
 }
 
 input:focus{
@@ -12,8 +13,4 @@ a {
 	text-decoration: none; /* 下線を削除 */
 	color: inherit; /* リンクの色を親要素から継承する（デフォルトの色に戻す） */
 	/* 他のスタイルをリセットする場合も、ここに追加で指定します */
-}
-
-p, h1, a{
-	color: black;
 }
