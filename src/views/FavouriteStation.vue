@@ -9,6 +9,13 @@
 import StationCardContainer from '@/components/StationCardContainer.vue';
 import StationInfo from '@/components/StationInfo.vue';
 import { fav_station } from '@/services/LocalStorage';
+import StationsApiService from '@/services/StationsApiService';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+	StationsApiService.getAll().then(() => {})
+})
+
 </script>
 
 <style scoped>
