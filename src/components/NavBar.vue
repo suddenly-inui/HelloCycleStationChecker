@@ -3,11 +3,11 @@
 		<img class="logo" src="../assets/logo.png" alt="">
 		<div class="right">
 			<div class="item_wrapper">
-			<RouterLink class="item home" to="/">HOME</RouterLink>
-		</div>
-		<div class="item_wrapper">
-			<RouterLink class="item fav" to="/favourite">FAVOURITE</RouterLink>
-		</div>
+				<RouterLink class="item home" to="/">HOME</RouterLink>
+			</div>
+			<div class="item_wrapper">
+				<RouterLink class="item fav" to="/favourite">FAVOURITE</RouterLink>
+			</div>
 		</div>
 		
 	</nav>
