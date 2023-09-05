@@ -135,6 +135,10 @@ const search = async () => {
 }
 
 @media (max-width: 1000px) {
+  .search_title_name{
+    font-size: 1.4em;
+  }
+  
   .search_input{
     font-size: 1.3em;
   }
