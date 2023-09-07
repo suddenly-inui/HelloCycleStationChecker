@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const apiClient = axios.create({
   // APIのURI
-  baseURL: 'https://daed-133-27-186-11.ngrok-free.app',
+  baseURL: 'https://inui.jn.sfc.keio.ac.jp',
   // リクエストヘッダ
   headers: {
     'Content-type': 'application/json'
